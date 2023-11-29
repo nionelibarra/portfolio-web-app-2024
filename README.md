@@ -1,5 +1,5 @@
 ## Reference Link
-[LAST LEFT OFF HERE](https://www.youtube.com/watch?v=urgi2iz9P6U)
+[LAST LEFT OFF HERE](https://youtu.be/urgi2iz9P6U?t=2057)
 ## Getting Started
 
 First, run the development server:
