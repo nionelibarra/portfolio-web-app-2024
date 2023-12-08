@@ -67,7 +67,7 @@ function Header({}: Props) {
           bgColor='transparent'
           network='email'
           className='cursor-pointer'
-          url='#contact'
+          href='#contact'
         />
 
         <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
