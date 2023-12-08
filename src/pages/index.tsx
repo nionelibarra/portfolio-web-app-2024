@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Header from '../../components/Header';
 import Hero from '../../components/Hero';
+import About from '../../components/About';
+import WorkExperience from '../../components/WorkExperience';
 
 export default function Home() {
   return (
@@ -8,11 +10,23 @@ export default function Home() {
       <Head>
         <title>Neyo's Portfolio</title>
       </Head>
-      <Header />
-      {/* Hero Banner */}
 
-      <section id='hero' className='snap-center'>
+      {/* Header Section */}
+      <Header />
+
+      {/* Hero Banner Section*/}
+      <section id='hero' className='snap-start'>
         <Hero />
+      </section>
+
+      {/* About Section */}
+      <section id='about' className='snap-center'>
+        <About/>
+      </section>
+
+      {/* Experience Section */}
+      <section id='experience' className='snap-center'>
+        <WorkExperience/>
       </section>
     </div>
   );
