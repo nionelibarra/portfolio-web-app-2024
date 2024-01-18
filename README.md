@@ -1,17 +1,17 @@
 ## Reference Link
-[LAST LEFT OFF HERE](https://youtu.be/urgi2iz9P6U?t=2057)
+[LAST LEFT OFF HERE](https://youtu.be/urgi2iz9P6U?t=6089) 08/12/2023 8:37 PM
 ## Getting Started
 
-First, run the development server:
+First install all the dependencies and packages
+
+```bash
+npm install
+```
+
+Then run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
