@@ -1,5 +1,5 @@
 ## Reference Link
-[LAST LEFT OFF HERE](https://youtu.be/urgi2iz9P6U?t=6089) 08/12/2023 8:37 PM
+[LAST LEFT OFF HERE](https://www.youtube.com/watch?v=urgi2iz9P6U&t=9528s) 29/01/2024 5:37 PM
 ## Getting Started
 
 First install all the dependencies and packages
