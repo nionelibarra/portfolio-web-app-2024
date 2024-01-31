@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
-type Props = {};
+import { Project } from '../typings';
+import { urlFor } from '../sanity';
+type Props = {
+  projects: Project[];
+};
 
-const Projects = (props: Props) => {
+const Projects = (projects: Props) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -28,7 +32,6 @@ const Projects = (props: Props) => {
     document.addEventListener("mouseup", handleMouseUp);
   };
 
-  const projects = [1, 2, 3, 4, 5];
   return (
     <div className="h-screen flex relative overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
@@ -40,7 +43,7 @@ const Projects = (props: Props) => {
         ref={containerRef}
         onMouseDown={handleMouseDown}
       >
-        {projects.map((project, i) => {
+        {projects.projects.map((project, i) => {
           return (
             <motion.div
               initial={{ opacity: 0 }}
@@ -53,26 +56,19 @@ const Projects = (props: Props) => {
                 transition={{ duration: 1.2, opacity: 1 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                src="https://i.ibb.co/3FTJffZ/mockup-design.png"
+                src={urlFor(project.image).url()}
                 alt="project-image"
               />
               <div className="space-y-10 px-0 md:px-10 max-w-6xl">
                 <h4 className="text-4xl font-semibold text-center">
                   {" "}
                   <span className="underline decoration-[#F7AB0A]/50">
-                    Case Study {i + 1} of {projects.length}:
+                    Case Study 
                   </span>{" "}
-                  UPS Clone
+                  {project.title}
                 </h4>
                 <p className="text-lg text-center md:text-left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  {project.summary}
                 </p>
               </div>
             </motion.div>

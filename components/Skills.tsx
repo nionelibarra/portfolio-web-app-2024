@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
-import Skill from './Skill';
+import SkillTag from './Skill';
+import { Skill } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {skills: Skill[];};
 
-function Skills({}: Props) {
+function Skills({skills}: Props) {
+
   return (
     <motion.div 
     initial={{opacity:0}}
@@ -18,14 +21,11 @@ function Skills({}: Props) {
       <h3 className='top-36 uppercase tracking-[3px] text-gray-500 text-sm absolute'>Hover over a current proficiency </h3>
 
       <div className='grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-5'>
-        <Skill/>
-        <Skill/>
-        <Skill/>
-        <Skill/>
-        <Skill/>
-        <Skill/>
-        <Skill/>
-        <Skill/>
+        {skills.map(skill=>(
+          <>
+          <SkillTag key={skill._id} skill={skill}/>
+          </>
+        ))}
 
       </div>
     </motion.div>

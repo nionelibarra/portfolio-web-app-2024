@@ -1,9 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { PageInfo } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
+type Props = {
+  pageInfo:PageInfo
+};
 
-function About({}: Props) {
+function About({pageInfo}: Props) {
+  
+
+
   return (
     <motion.div
       initial={{
@@ -32,7 +39,7 @@ function About({}: Props) {
         }}
         transition={{ duration: 1.2 }}
         // viewport={{ once: true }}
-        src='https://technicalpenguins.com/wp-content/uploads/2017/10/pengin_coder.png'
+        src={urlFor(pageInfo?.profilePic).url()}
         alt='img'
         className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:h-95 md:w-64 xl:h-[600px] xl:w-[500px]'
       />
@@ -44,13 +51,7 @@ function About({}: Props) {
           background
         </h4>
         <p className='text-base'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          {pageInfo.backgroundInformation}
         </p>
       </div>
     </motion.div>

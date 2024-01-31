@@ -6,7 +6,7 @@ interface SanityBody
     _updatedAt:string;
 }
 
-interface Image {
+export interface Image {
     _type:"image",
     asset:{
         _ref:string;
@@ -20,7 +20,7 @@ export interface PageInfo extends SanityBody{
     backgroundInformation:string;
     email:string;
     role:string;
-    heroImage:string;
+    heroImage:Image;
     name:string;
     phoneNumber:string;
     profilePic:Image;

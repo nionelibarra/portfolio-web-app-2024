@@ -1,6 +1,10 @@
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
 import { useForm, SubmitHandler } from 'react-hook-form';
-type Props = {};
+import { PageInfo } from '../typings';
+
+type Props = {
+  pageInfo: PageInfo;
+};
 
 type Inputs = {
   name: string;
@@ -9,7 +13,7 @@ type Inputs = {
   message: string;
 };
 
-const ContactMe = (props: Props) => {
+const ContactMe = ({pageInfo}: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     // Change this for a mailchimp API or something
@@ -26,18 +30,18 @@ const ContactMe = (props: Props) => {
         </h4>
         <div className='sm:text-2xl flex items-center space-x-5 justify-center'>
           <PhoneIcon className='text-[#F7AB0A] h-7 w-7 sm:h-5 sm:w-5 animate-pulse' />
-          <p className='sm:text-2xl'>+63 966 761 3212</p>
+          <p className='sm:text-2xl'>{pageInfo.phoneNumber}</p>
         </div>
 
         <div className='flex items-center space-x-5 justify-center'>
           <MapPinIcon className='text-[#F7AB0A] h-7 w-7 sm:h-5 sm:w-5 animate-pulse' />
           <p className='sm:text-2xl'>
-            027, Purok 2A, Apokon, Tagum City,<br/> Davao del Norte 8100
+            {pageInfo.address}
           </p>
         </div>
         <div className='flex items-center space-x-5 justify-center'>
           <EnvelopeIcon className='text-[#F7AB0A] sm:h-5 sm:w-5 h-7 w-7 animate-pulse' />
-          <p className='sm:text-2xl'>nionelibarra@gmail.com</p>
+          <p className='sm:text-2xl'>{pageInfo.email}</p>
         </div>
 
         <form
@@ -79,6 +83,6 @@ const ContactMe = (props: Props) => {
       </div>
     </div>
   );
-};``
+};
 
 export default ContactMe;

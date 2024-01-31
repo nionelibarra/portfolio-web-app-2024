@@ -2,30 +2,36 @@ import React from 'react';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import BackgroundCircles from './BackgroundCircles';
 import Link from 'next/link';
+import { PageInfo } from '../typings';
+import { urlFor } from '../sanity';
 
-type Props = {};
 
-export default function Hero({}: Props) {
+type Props = {
+  pageInfo: PageInfo;
+};
+
+export default function Hero({pageInfo}: Props) {
   const [text, count] = useTypewriter({
     words: [
-      'Hi, welcome to Neyos portfolio.',
-      'no-bullsh*t-code.tsx',
-      '<caffeinePowered>',
+      `Hi, welcome to my portfolio.`,
+      `-> ${pageInfo.name} <-`,
+      '<my-portfolio-2024.tsx>',
     ],
     loop: true,
     delaySpeed: 2000,
   });
+
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles />
       <img
-        src='https://technicalpenguins.com/wp-content/uploads/2017/10/pengin_coder.png'
+        src={urlFor(pageInfo?.heroImage).url()}
         alt='profile-image'
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
       />
       <div className='z-20'>
         <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>
-          Software Engineer
+          {pageInfo?.role ?? 'Software Engineer'}
         </h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
           <span className='mr-3'>{text}</span>
